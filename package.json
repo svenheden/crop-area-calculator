@@ -6,7 +6,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "browserify index.js -s calculateCropArea -o dist/crop-area-calculator.js"
+    "build": "browserify index.js -s calculateCropArea -o dist/crop-area-calculator.js",
+    "deploy:demo": "surge --domain crop-area-calculator.surge.sh"
   },
   "repository": {
     "type": "git",
@@ -15,6 +16,7 @@
   "author": "Jonathan Persson <persson.jonathan@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "browserify": "^12.0.1"
+    "browserify": "^12.0.1",
+    "surge": "^0.17.1"
   }
 }

@@ -8,7 +8,7 @@ These values can be used for fixed coordinates cropping with tools like e.g. [Im
 
 ## Demo
 
-Check out `demo.html` for an example use case.
+Check out [this link](http://crop-area-calculator.surge.sh/demo.html) or `demo.html` for an example use case.
 
 ## How to use
 
