@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Crop Area Calculator Demo</title>
+    </head>
+    <style>
+        #source {
+            position: relative;
+            width: 95%;
+            margin-top: 1em;
+        }
+
+        #source img {
+            width: 100%;
+            vertical-align: bottom;
+        }
+
+        #focal-point {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: 50%;
+            left: 50%;
+            background: red;
+            border: 4px solid darkred;
+            box-shadow: 0 0 5px 2px red;
+            border-radius: 50%;
+        }
+
+        input {
+            width: 40px;
+        }
+
+        .column {
+            float: left;
+            width: 600px;
+        }
+    </style>
+    <body>
+        <div class="intro">
+            <h1>Crop Area Calculator Demo</h1>
+            <p>Click in the source image to change the focal point and/or input the target dimensions below.</p>
+
+            <label for="width">Target width:</label>
+            <input type="number" id="width" value="400">
+            <br>
+            <label for="height">Target height:</label>
+            <input type="number" id="height" value="200">
+            <br>
+            <br>
+            <button type="button" id="update-dimensions">Update dimensions</button>
+        </div>
+
+        <div class="column">
+            <h2>Source image</h2>
+            <div id="source">
+                <img src="http://res.cloudinary.com/demo/image/upload/brown_sheep.jpg" alt="">
+                <div id="focal-point"></div>
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Resulting crop</h2>
+            <img id="target" src="" alt="">
+        </div>
+
+        <script src="dist/crop-area-calculator.js"></script>
+        <script>
+            var focalPointSize = document.getElementById('focal-point').offsetWidth;
+
+            function setFocalPoint(ev) {
+              document.getElementById('focal-point').style.left = ev.offsetX - (focalPointSize/2) + 'px';
+              document.getElementById('focal-point').style.top = ev.offsetY - (focalPointSize/2) + 'px';
+              render();
+            }
+
+            function startLoading() {
+              document.body.style.cursor = 'progress';
+            }
+
+            function stopLoading() {
+              document.body.style.cursor = 'default';
+            }
+
+            function render() {
+              var target = document.getElementById('target');
+              var targetWidth = document.getElementById('width').value;
+              var targetHeight = document.getElementById('height').value;
+              var sourceNaturalWidth = document.querySelector('#source > img').naturalWidth;
+              var sourceNaturalHeight = document.querySelector('#source > img').naturalHeight;
+              var ratio = sourceNaturalWidth / document.querySelector('#source > img').width;
+              var x = Math.round(ratio * (document.getElementById('focal-point').offsetLeft + (focalPointSize/2)));
+              var y = Math.round(ratio * (document.getElementById('focal-point').offsetTop + (focalPointSize/2)));
+
+              startLoading();
+
+              var cropArea = calculateCropArea({
+                sourceWidth: sourceNaturalWidth,
+                sourceHeight: sourceNaturalHeight,
+                targetAspectRatio: targetWidth/targetHeight,
+                focalPointX: x,
+                focalPointY: y
+              });
+
+              target.src = 'http://res.cloudinary.com/demo/image/upload/' +
+                'x_' + cropArea.x1 + ',' +
+                'y_' + cropArea.y1 + ',' +
+                'w_' + (cropArea.x2 - cropArea.x1) + ',' +
+                'h_' + (cropArea.y2 - cropArea.y1) + ',' +
+                'c_crop/brown_sheep.jpg';
+
+              target.style.width = targetWidth + 'px';
+              target.style.height = targetHeight + 'px';
+
+              target.onload = stopLoading;
+            }
+
+            document.getElementById('source').addEventListener('click', setFocalPoint);
+            document.getElementById('update-dimensions').addEventListener('click', render);
+            window.onload = render;
+        </script>
+    </body>
+</html>
