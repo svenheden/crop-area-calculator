@@ -4,7 +4,6 @@
   "title": "Crop area calculator",
   "description": "Utility function for calculating coordinates for image cropping",
   "main": "index.js",
-  "private": true,
   "scripts": {
     "build": "browserify index.js -s calculateCropArea -o dist/crop-area-calculator.js",
     "deploy:demo": "surge --domain crop-area-calculator.surge.sh",
@@ -12,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/jonathanp_/crop-area-calculator.git"
+    "url": "git+ssh://git@github.com:jonathanp/crop-area-calculator.git"
   },
   "author": "Jonathan Persson <persson.jonathan@gmail.com>",
   "license": "MIT",
