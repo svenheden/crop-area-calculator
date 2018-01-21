@@ -7,6 +7,8 @@ Given a focal point, an aspect ratio and source image dimensions this module wil
 
 These values can be used for fixed coordinates cropping with tools like e.g. [ImageMagick/GraphicsMagick](https://github.com/aheckmann/gm) or a service like [Cloudinary](http://cloudinary.com/documentation/image_transformations#crop_modes).
 
+This algorithm has been implemented in the [EPiFocalPoint plugin for EpiServer](https://github.com/defsteph/EPiFocalPoint).
+
 ## Demo
 
 Check out [this link](http://crop-area-calculator.surge.sh/demo.html) or `demo.html` for an example use case.
