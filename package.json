@@ -1,6 +1,6 @@
 {
   "name": "crop-area-calculator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "Crop area calculator",
   "description": "Utility function for calculating coordinates for image cropping",
   "main": "index.js",
@@ -11,9 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:jonathanp/crop-area-calculator.git"
+    "url": "git+ssh://git@github.com:svenheden/crop-area-calculator.git"
   },
-  "author": "Jonathan Persson <persson.jonathan@gmail.com>",
+  "author": "Jonathan Svenheden <jonathan@svenheden.com>",
   "license": "MIT",
   "devDependencies": {
     "browserify": "^12.0.1",

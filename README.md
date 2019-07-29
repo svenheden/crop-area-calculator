@@ -19,9 +19,9 @@ Either `npm install --save crop-area-calculator` and import it in your own code 
 
 ## License
 
-MIT © [Jonathan Persson](https://github.com/jonathanp)
+MIT © [Jonathan Svenheden](https://github.com/svenheden)
 
 [npm-url]: https://npmjs.org/package/crop-area-calculator
 [npm-image]: https://badge.fury.io/js/crop-area-calculator.svg
-[travis-image]: https://travis-ci.org/jonathanp/crop-area-calculator.svg
-[travis-url]: https://travis-ci.org/jonathanp/crop-area-calculator
+[travis-image]: https://travis-ci.org/svenheden/crop-area-calculator.svg
+[travis-url]: https://travis-ci.org/svenheden/crop-area-calculator
