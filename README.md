@@ -1,6 +1,6 @@
 # Crop area calculator
 
-[![Build Status][travis-image]][travis-url]
+![Tests][tests-badge]
 [![NPM version][npm-image]][npm-url]
 
 Given a focal point, an aspect ratio and source image dimensions this module will calculate a crop starting point (`x1`, `y1`) and end point (`x2`, `y2`).
@@ -23,5 +23,4 @@ MIT © [Jonathan Svenheden](https://github.com/svenheden)
 
 [npm-url]: https://npmjs.org/package/crop-area-calculator
 [npm-image]: https://badge.fury.io/js/crop-area-calculator.svg
-[travis-image]: https://travis-ci.org/svenheden/crop-area-calculator.svg
-[travis-url]: https://travis-ci.org/svenheden/crop-area-calculator
+[tests-badge]: https://github.com/svenheden/crop-area-calculator/workflows/Tests/badge.svg
